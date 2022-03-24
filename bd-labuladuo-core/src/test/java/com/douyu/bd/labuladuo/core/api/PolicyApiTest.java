@@ -1,14 +1,22 @@
 package com.douyu.bd.labuladuo.core.api;
 
-import com.douyu.bd.labuladuo.core.utils.RangerClient;
 import com.douyu.bd.labuladuo.core.config.RangerClientConfig;
 import com.douyu.bd.labuladuo.core.model.Policy;
 import com.douyu.bd.labuladuo.core.model.PolicyItem;
 import com.douyu.bd.labuladuo.core.model.PolicyItemAccess;
 import com.douyu.bd.labuladuo.core.model.PolicyResource;
+import com.douyu.bd.labuladuo.core.utils.RangerClient;
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.expression.EvaluationContext;
+import org.springframework.expression.Expression;
+import org.springframework.expression.ExpressionParser;
+import org.springframework.expression.spel.standard.SpelExpressionParser;
+import org.springframework.expression.spel.support.StandardEvaluationContext;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 import static org.junit.Assert.assertNotNull;
@@ -26,7 +34,7 @@ public class PolicyApiTest {
     @Test
     public void testCreatePolicy() {
         PolicyResource policyResource = PolicyResource.builder()
-                .values(Collections.singletonList("/testdir2"))
+                .values(Collections.singletonList("/testdir"))
                 .isRecursive(true)
                 .build();
 
@@ -82,5 +90,26 @@ public class PolicyApiTest {
         assertNotNull(result);
         rangerClient.getPolicyApi().deletePolicy(result.getId());
         System.out.println(result.getName());
+    }
+
+    @Test
+    public void testSpel() {
+        String time = "20211223" + "000000";
+        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
+        LocalDateTime date = LocalDateTime.parse(time, dateFormat);
+
+        String time2 = "20211224" + "235959";
+        LocalDateTime date2 = LocalDateTime.parse(time2, dateFormat);
+        long l = Duration.between(date, date2).toDays();
+        System.out.println(l);
+
+        ExpressionParser parser = new SpelExpressionParser();
+        Expression exp = parser.parseExpression("T(java.time.Duration).between(T(java.time.LocalDateTime).parse(#param + '000000', T(java.time.format.DateTimeFormatter).ofPattern('yyyyMMddHHmmss')), T(java.time.LocalDateTime).now()).toDays()");
+//        "T(java.time.temporal.ChronoUnit).DAYS.between(T(java.time.LocalDateTime).parse(#param + '000000', T(java.time.format.DateTimeFormatter).ofPattern(\"yyyy-MM-dd\")), T(java.time.LocalDateTime).now().format(T(java.time.format.DateTimeFormatter).ofPattern('yyyy-MM-dd')))"
+        EvaluationContext context = new StandardEvaluationContext();
+        context.setVariable("param", "20211219");
+        Object value = exp.getValue(context);
+        System.out.println(value);
+        assertNotNull(value);
     }
 }
