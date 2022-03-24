@@ -10,8 +10,8 @@ import lombok.NoArgsConstructor;
  * 策略条件项中的权限信息，即在该项中拥有哪些权限，对应“Permissions”
  * https://ranger.apache.org/apidocs/json_RangerPolicyItemAccess.html
  *
- * @author 01
- * @date 2020-11-12
+ * @author labuladuo
+ * @date 2021-11-12
  **/
 @Data
 @Builder

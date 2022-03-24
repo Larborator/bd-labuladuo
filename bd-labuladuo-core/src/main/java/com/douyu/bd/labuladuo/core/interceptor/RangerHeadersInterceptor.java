@@ -6,8 +6,8 @@ import feign.RequestTemplate;
 /**
  * 请求头拦截器，用于添加请求头
  *
- * @author 01
- * @date 2020-11-12
+ * @author labuladuo
+ * @date 2021-11-12
  **/
 public class RangerHeadersInterceptor implements RequestInterceptor {
 

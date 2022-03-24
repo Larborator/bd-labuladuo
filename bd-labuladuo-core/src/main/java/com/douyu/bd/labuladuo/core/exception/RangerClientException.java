@@ -5,14 +5,13 @@ import java.io.Serializable;
 /**
  * 自定义业务异常
  *
- * @author 01
- * @date 2020-11-12
+ * @author labuladuo
+ * @date 2021-11-12
  **/
 public class RangerClientException extends RuntimeException implements Serializable {
     private static final long serialVersionUID = -4441189815976639860L;
-    private Throwable cause;
-    private int status;
-    private String message;
+    private final int status;
+    private final String message;
 
     public RangerClientException(int status, String message) {
         this.status = status;

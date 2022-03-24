@@ -12,8 +12,8 @@ import java.util.List;
 /**
  * https://ranger.apache.org/apidocs/json_RangerPolicyItemCondition.html
  *
- * @author 01
- * @date 2020-11-12
+ * @author labuladuo
+ * @date 2021-11-12
  **/
 @Data
 @Builder

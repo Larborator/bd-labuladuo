@@ -15,8 +15,8 @@ import java.util.Set;
  * 策略中的条件项，对应“Allow Conditions”或“Deny Conditions”中的每一栏信息
  * https://ranger.apache.org/apidocs/json_RangerPolicyItem.html
  *
- * @author 01
- * @date 2020-11-12
+ * @author labuladuo
+ * @date 2021-11-12
  **/
 @Data
 @Builder

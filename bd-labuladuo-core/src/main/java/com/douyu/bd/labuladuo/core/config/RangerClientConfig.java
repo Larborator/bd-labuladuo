@@ -10,8 +10,8 @@ import lombok.NoArgsConstructor;
 /**
  * http客户端配置
  *
- * @author 01
- * @date 2020-11-12
+ * @author labuladuo
+ * @date 2021-11-12
  **/
 @Data
 @Builder

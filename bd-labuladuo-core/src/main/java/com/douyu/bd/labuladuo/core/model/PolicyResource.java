@@ -13,8 +13,8 @@ import java.util.List;
  * 策略所作用的资源，即hdfs目录、hive的库/表/列等
  * https://ranger.apache.org/apidocs/json_RangerPolicyResource.html
  *
- * @author 01
- * @date 2020-11-12
+ * @author labuladuo
+ * @date 2021-11-12
  **/
 @Data
 @Builder

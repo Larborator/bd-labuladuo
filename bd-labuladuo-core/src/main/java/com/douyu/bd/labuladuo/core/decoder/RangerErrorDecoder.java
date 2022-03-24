@@ -10,16 +10,14 @@ import java.io.IOException;
 /**
  * 异常信息解析
  *
- * @author 01
- * @date 2020-11-12
+ * @author labuladuo
+ * @date 2021-11-12
  **/
 public class RangerErrorDecoder implements ErrorDecoder {
 
     @Override
     public Exception decode(String methodKey, Response response) {
-        return new RangerClientException(
-                response.status(), errorMessage(methodKey, response)
-        );
+        return new RangerClientException(response.status(), errorMessage(methodKey, response));
     }
 
     private String errorMessage(String methodKey, Response response) {
@@ -31,7 +29,6 @@ public class RangerErrorDecoder implements ErrorDecoder {
                 e.printStackTrace();
             }
         }
-
         return msg;
     }
 }

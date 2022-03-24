@@ -14,8 +14,8 @@ import java.util.Map;
  * 策略实体
  * https://ranger.apache.org/apidocs/json_RangerPolicy.html
  *
- * @author 01
- * @date 2020-11-12
+ * @author labuladuo
+ * @date 2021-11-12
  **/
 @Data
 @Builder

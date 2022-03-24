@@ -12,8 +12,8 @@ import java.util.List;
  * 用户信息实体类
  * https://ranger.apache.org/apidocs/json_VXUser.html
  *
- * @author 01
- * @date 2020-11-12
+ * @author labuladuo
+ * @date 2021-11-12
  **/
 @Data
 @Builder
