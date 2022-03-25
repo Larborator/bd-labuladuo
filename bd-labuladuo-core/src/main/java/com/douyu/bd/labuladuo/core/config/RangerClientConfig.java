@@ -22,6 +22,6 @@ public class RangerClientConfig {
     private int connectionTimeoutMills = 5 * 1000;
     private int readTimeoutMills = 30 * 1000;
     private Logger.Level level = Logger.Level.BASIC;
-    private String url = "https://114.116.229.11:21405";
+    private String url = "https://114.116.229.11:9022";
     private RangerAuthConfig authConfig = new RangerAuthConfig();
 }
